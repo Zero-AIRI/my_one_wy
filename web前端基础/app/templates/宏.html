@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% macro inputstyle(name, value='', type='checkbox') %}
+        <input name="{{ name }}" value="{{ value }}" type="{{ type }}">
+    {% endmacro %}
+
+    <h4>您目前对那些技术感兴趣？</h4>
+    <p>{{ inputstyle('Python') }} Python</p>
+    <p>{{ inputstyle('Java') }} Java</p>
+    <p>{{ inputstyle('big_data') }} 大数据</p>
+    <p>{{ inputstyle('JavaScript') }} JavaScript</p>
+    <p>{{ inputstyle('commit', value='提交', type='button') }}</p>
+</body>
+</html>

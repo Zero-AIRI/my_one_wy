@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% if score >= 85 %}
+        优秀
+    {% elif 75 <= score < 85 %}
+        良好
+    {% elif 60 <= score < 75 %}
+        中等
+    {% else %}
+        差
+    {% endif %}
+</body>
+</html>

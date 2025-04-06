@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子模板</title>
+</head>
+<body>
+    {% extends '静态图片.html' %}
+    {% block content %}
+        <p>我是子模板</p>
+        {{ super() }}
+    {% endblock %}
+</body>
+</html>

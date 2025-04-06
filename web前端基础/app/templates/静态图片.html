@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基模板</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Italics.css') }}">
+</head>
+<body>
+<p>Flask-Logo图片</p>
+<img src="{{ url_for('static', filename='f33157a3406e0b5bbfc5138582a5c1d4_720.jpeg') }}">
+
+<div class="navigation">
+    <p>我是导航栏</p>
+</div>
+<div class="content">
+    {% block content %}
+    <p>基模板中的内容</p>
+    {% endblock %}
+</div>
+<div class="footer">
+    <p>我是页脚</p>
+
+
+</body>
+</html>
