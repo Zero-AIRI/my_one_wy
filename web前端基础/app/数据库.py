@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import text,Column
+from sqlalchemy import text,column
 
 app = Flask(__name__)
 
@@ -51,21 +51,37 @@ class User(db.Model):
 # if __name__ == '__main__':
 #     app.run()
 
-# 查询数据
-@app.route("/")
-def query_user():
-    # get查找后键，只能找到一条数据
-    user = User.query.get(1)
-    print(f"{user.id}:{user.username}---{user.password}")
+# # 查询数据
+# @app.route("/")
+# def query_user():
+#     # get查找后键，只能找到一条数据
+#     user = User.query.get(1)
+#     print(f"{user.id}:{user.username}---{user.password}")
     
-    # filter by查找
-    users = User.query.filter_by(username="小明")
-    print(type(user))
-    for user in users:
-        print(user.username)
+#     # filter by查找
+#     users = User.query.filter_by(username="小明")
+#     print(type(user))
+#     for user in users:
+#         print(user.username)
     
-    return "数据查询成功"
+#     return "数据查询成功"
+
+
+# @app.route("/")
+# def update_user():
+#     user = User.query.filter_by(username="小明").first()  # 查询名为“小明”的用户
+#     user.password = "213"  # 更新用户的密码
+#     db.session.commit()  # 提交更改到数据库
+#     db.session.refresh(user)
+#     return "更新修改数据成功"
 
 if __name__ == '__main__':
-    app.run()
-
+    with app.app_context():  # 确保在应用上下文中运行
+        user = User.query.filter_by(username="小红").first()
+        if user:
+            user.password = "我小小爸"
+            db.session.commit()
+            print("数据库修改成功！")
+        else:
+            print("用户不存在")
+            
