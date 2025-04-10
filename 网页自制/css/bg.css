@@ -19,3 +19,122 @@
     /* object-fit: cover
    
 } */
+
+
+
+.navbar {
+    display: flex;                /* 启用 Flex 布局（子元素横向排列） */
+    justify-content: space-between; /* 子元素左右两端对齐 */
+    align-items: center;          /* 子元素垂直居中 */
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+    padding: 0.5rem 1rem;         /* 内边距：上下 0.5rem，左右 1rem */
+    color: white;                 /* 默认文字颜色为白色 */
+    border-radius: 10px;  /* 所有角统一圆角 */
+   
+  }
+  
+  
+
+  
+  
+  
+  /* ==================== 导航链接容器样式 ==================== */
+/* 设置导航链接列表的基础样式 */
+.nav-links {
+    list-style: none;  /* 移除列表默认的项目符号（如圆点） */
+    display: flex;     /* 启用Flex布局，使列表项横向排列 */
+    margin: 0;         /* 清除默认外边距 */
+    padding: 0;        /* 清除默认内边距 */
+    /* 现在列表项会从左到右水平排列，且没有列表符号和间距 */
+  }
+  
+  /* 每个导航列表项的样式 */
+.nav-links li {
+    margin-right: 2rem; /* 每个列表项右侧间隔2rem（约32px）*/
+
+  }
+  
+  /* 导航链接的文本样式 */
+.nav-links a {
+    color: white;       /* 文字颜色设为白色 */
+    text-decoration: none; /* 移除超链接默认的下划线 */
+    transition: color 0.3s; /* 添加颜色变化的过渡动画，持续0.3秒 */
+    /* 当鼠标悬停或状态改变时，颜色会平滑过渡而不是突然变化 */
+  }
+  
+  /* 活动状态/悬停状态的链接样式 */
+.nav-links a.active,  /*解读："选择class='nav-links'的元素内部，所有同时具有标签和class='active'的元素"*/
+.nav-links a:hover {  /* 鼠标悬停时的样式 */
+    color: #ccc;        /* 将文字颜色变为浅灰色（原白色变暗）*/
+
+  }
+  
+  /* ==================== 导航右侧操作区样式 ==================== */
+  /* 包含登录按钮等元素的容器 */
+.nav-actions {
+    display: flex;       /* 启用Flex布局 */
+    align-items: center; /* 子元素垂直居中对齐 */
+    /* 内部元素会水平排列且垂直居中 */
+  }
+  
+  /* 成长系统链接样式（可能是VIP/会员等系统） */
+.growth-system {
+    margin-right: 1rem;  /* 右侧间隔1rem（约16px）*/
+    color: white;        /* 白色文字 */
+    text-decoration: none; /* 移除下划线 */
+    /* 这是一个普通的文本链接样式 */
+  }
+  
+  /* ==================== 登录按钮样式 ==================== */
+.login-btn {
+    background-color: transparent; /* 透明背景 */
+    border: 1px solid white;      /* 1像素白色边框 */
+    border-radius: 10px;
+    color: white;                 /* 白色文字 */
+    padding: 0.5rem 1rem;         /* 内边距：上下0.5rem，左右1rem */
+    cursor: pointer;              /* 鼠标悬停时变为手指形状 */
+    transition: background-color 0.3s; /* 背景色变化过渡效果 */
+    /* 这是一个典型的"空心按钮"样式 */
+  }
+  
+  /* 登录按钮的悬停状态 */
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    /* 半透明白色背景（RGB颜色+透明度0.2）*/
+    /* 由于transition设置，背景会渐变出现 */
+  }
+  
+/* 搜索表单的整体容器样式 */
+.search-form {
+    display: flex;                /* 启用Flex布局（让里面的元素排成一行） */
+    align-items: center;          /* 所有子元素垂直居中（像排队时对齐肩膀） */
+    background-color: #333;
+  }
+  
+  /* 搜索输入框的样式 */
+  .search-form input[type="search"] {
+    width: 150px;              /* 输入框自动拉伸占满剩余空间（像弹簧一样变宽） */
+    padding: 0.5rem;              /* 内边距：上下左右各0.5rem（约半个汉字高度的空白） */
+    border: 0;                 /* 去掉默认边框（像把输入框的黑色线框擦掉） */
+    border-radius: 10px;         
+  }
+
+  .search-form input[type="search"]:focus {
+    outline: none; /* 去除轮廓 */
+    box-shadow: none; /* 去除阴影 */
+  }
+  
+  /* 搜索按钮的样式 */
+  .search-form button[type="submit"] {
+    padding: 0.5rem 1rem;         /* 内边距：上下0.5rem，左右1rem（让按钮变胖一点） */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  
+    background-color: var(--navbar-bg-color); /* 背景色：使用CSS变量（和导航栏同色） */
+    color: white;                 /* 文字颜色：白色 */
+    cursor: pointer;              /* 鼠标悬停时变成手指形状（提醒这里可以点击） */
+    border-radius:  0  ;       
+  }
+  
