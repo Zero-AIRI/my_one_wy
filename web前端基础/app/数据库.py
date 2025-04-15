@@ -75,13 +75,42 @@ class User(db.Model):
 #     db.session.refresh(user)
 #     return "更新修改数据成功"
 
-if __name__ == '__main__':
-    with app.app_context():  # 确保在应用上下文中运行
-        user = User.query.filter_by(username="小红").first()
-        if user:
-            user.password = "我小小爸"
-            db.session.commit()
-            print("数据库修改成功！")
-        else:
-            print("用户不存在")
+# if __name__ == '__main__':
+#     with app.app_context():  # 确保在应用上下文中运行
+#         user = User.query.filter_by(username="小红").first()
+#         if user:
+#             user.password = "我是我爸"
+#             db.session.commit()
+#             print("数据库修改成功！")
+#         else:
+#             print("用户不存在")
             
+
+class Article(db.Model):
+    __tablename__ = "article"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(200), unique=True, nullable=False)
+    content = db.Column(db.Text, nullable=False)
+
+    # 添加作者外键
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # backref: 会自动给User模型添加articles的属性, 用来获取文章列表
+    author = db.relationship("User", backref="articles")
+
+with app.app_context():
+    db.create_all()
+    # db.drop_all()
+
+
+@app.route("/")
+def article_add():
+    article1 = Article(title="数据服务", content="数据服务课程内容")
+    article1.author = User.query.get(1)
+    article2 = Article(title="python web课程", content="python web课程内容")
+    article2.author = User.query.get(2)
+    db.session.add_all([article1, article2])
+    db.session.commit()
+    return "文章添加成功！"
+
+if __name__ == '__main__':
+    app.run()

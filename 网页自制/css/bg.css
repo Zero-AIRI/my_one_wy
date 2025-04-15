@@ -104,37 +104,36 @@
     /* 由于transition设置，背景会渐变出现 */
   }
   
-/* 搜索表单的整体容器样式 */
-.search-form {
-    display: flex;                /* 启用Flex布局（让里面的元素排成一行） */
-    align-items: center;          /* 所有子元素垂直居中（像排队时对齐肩膀） */
-    background-color: #333;
-  }
-  
-  /* 搜索输入框的样式 */
-  .search-form input[type="search"] {
-    width: 150px;              /* 输入框自动拉伸占满剩余空间（像弹簧一样变宽） */
-    padding: 0.5rem;              /* 内边距：上下左右各0.5rem（约半个汉字高度的空白） */
-    border: 0;                 /* 去掉默认边框（像把输入框的黑色线框擦掉） */
-    border-radius: 10px;         
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #f9f9f9;
   }
 
-  .search-form input[type="search"]:focus {
-    outline: none; /* 去除轮廓 */
-    box-shadow: none; /* 去除阴影 */
-  }
-  
-  /* 搜索按钮的样式 */
-  .search-form button[type="submit"] {
-    padding: 0.5rem 1rem;         /* 内边距：上下0.5rem，左右1rem（让按钮变胖一点） */
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-  
-    background-color: var(--navbar-bg-color); /* 背景色：使用CSS变量（和导航栏同色） */
-    color: white;                 /* 文字颜色：白色 */
-    cursor: pointer;              /* 鼠标悬停时变成手指形状（提醒这里可以点击） */
-    border-radius:  0  ;       
-  }
-  
+  .search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.magnifier {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+.magnifier::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 6px;
+  height: 2px;
+  background: #000;
+  transform: rotate(45deg);
+}
