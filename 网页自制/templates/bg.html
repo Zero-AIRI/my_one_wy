@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ai{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/bg.css">       
+     <!-- <link> 标签用于连接外部资源  rel 是 relationship 的缩写,表示当前文档与被链接资源之间的关系 固定写法
+     href 是 hypertext reference 的缩写，超文本引用 表示被链接资源的 URL 或路径。
+     ./ 表示当前目录（相对于 HTML 文件的位置）。 -->
+</head>
+<body>
+    
+   <video id='bg-v'   autoplay  muted   loop>
+      <!-- id 可以说是给视频起了一个名字 方便进行选择修改 -->
+      <!-- autoplay：页面加载后自动播放     muted：静音播放     loop：循环播放 -->
+        <source src="../static/video/v_bg.mp4" type="video/mp4">
+          <!-- source  实现了一个视频播放选择的功能 可以放置多个视频格式 方便更好的解析 如何直接使用src格式无法做到智能
+          切换 可以说提供备用选项 在本段代码中只有一个格式 
+          type 声明视频的格式 不交给游览器判断 可能会判断错误 一个标签 -->
+          <!-- 注意视频路径是相对于HTML文件的！ -->
+    </video>
+
+
+    <nav class="navbar">
+      <!-- nav 英文navigation的缩写，意思是"导航"    表示这是一个导航栏。 -->
+      <!-- class  是类的意思 目前的类是navbar  给块贴上标签 然后在标签上进行样式的设计 所有使用这个标签的块 都会使用同样的样式 -->
+
+        <ul class="nav-links">
+          <li><a href="#" class="active">首页</a></li>
+            <!-- li 是 "list item"（列表项目），就像盒子里的一个积木
+            a 是超链接（可以点击的按钮），像魔术贴一样能把人带到其他页面
+            href="#" 是暂时链接到当前页面（像在原地踏步） -->
+          <li><a href="/school">学校</a></li>
+          <li><a href="#">角色</a></li>
+          <li><a href="#">世界</a></li>
+          <li><a href="#">没想好</a></li>
+          <li><a href="#">没想好</a></li>
+          <li><a href="#">没想好</a></li>
+          <li><a href="#">没想好</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="login-btn">登录</button>
+        </div>
+        
+       
+        
+
+      </nav>
+      {% block content %}{% endblock %}
+    
+</body>
+</html>
