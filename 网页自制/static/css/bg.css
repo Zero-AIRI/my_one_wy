@@ -63,7 +63,7 @@
   }
   
   /* 活动状态/悬停状态的链接样式 */
-.nav-links a.active,  /*解读："选择class='nav-links'的元素内部，所有同时具有标签和class='active'的元素"*/
+  /* .nav-links a.active,  解读："选择class='nav-links'的元素内部，所有同时具有标签和class='active'的元素" */
 .nav-links a:hover {  /* 鼠标悬停时的样式 */
     color: #ccc;        /* 将文字颜色变为浅灰色（原白色变暗）*/
 
@@ -129,4 +129,42 @@
   height: 2px;
   background: #000;
   transform: rotate(45deg);
+}
+
+/* 下拉菜单初始状态（隐藏） */
+/* 下拉菜单容器的基础样式 */
+.dropdown-content {
+  /* 初始状态隐藏下拉菜单 */
+  display: none;
+  
+  /* 使用绝对定位，相对于最近的positioned祖先元素 */
+  
+  top: 100%;  /* 从父元素底部开始 */
+  left: 0;    /* 与父元素左对齐 */
+
+  
+  
+  color: rgba(255, 255, 255, 0.3);
+    
+}
+
+/* 下拉菜单中列表项的样式 */
+.dropdown-content li {
+  /* 让列表项独占一行（块级显示） */
+  display: block;
+}
+
+/* 下拉菜单中链接的样式 */
+.dropdown-content li a {
+  /* 设置链接文字颜色为黑色 */
+  color: white;       
+  
+  /* 设置链接内边距：上下12px 左右16px */
+  padding: 12px 16px;
+}
+
+/* 鼠标悬停效果 */
+.dropdown:hover .dropdown-content {
+  /* 当鼠标悬停在.dropdown元素上时，显示下拉菜单 */
+  display: block;
 }
