@@ -9,8 +9,17 @@ def zhuye():
     return render_template("/bg.html")  
 
 @my_wy.route("/school")
-def about():
+def school():
     return render_template("school.html")
 
+@my_wy.route("/what")
+def what():
+    return render_template("what.html")
+
+@my_wy.route("/world")
+def world():
+    return render_template("world.html")
+
+
 if __name__ == "__main__":
-    my_wy.run(debug=True)
+    my_wy.run(port=5000, debug=True)

@@ -26,23 +26,43 @@
       <!-- class  是类的意思 目前的类是navbar  给块贴上标签 然后在标签上进行样式的设计 所有使用这个标签的块 都会使用同样的样式 -->
 
         <ul class="nav-links">
-          <li><a href="#" class="active">首页</a></li>
+          <!-- <ul> 是 无序列表（Unordered List） -->
+
+          <li><a href="http://127.0.0.1:5000/" class="active">首页</a></li>
             <!-- li 是 "list item"（列表项目），就像盒子里的一个积木
-            a 是超链接（可以点击的按钮），像魔术贴一样能把人带到其他页面
+            href 是 超链接（Hyperlink Reference） 的属性，用于指定链接的目标地址
             href="#" 是暂时链接到当前页面（像在原地踏步） -->
+            <!-- <a> 标签（全称 Anchor Tag，即“锚标签”）用于 创建超链接 -->
+
+
           <li><a href="/school">学校</a></li>
-          <li><a href="#">角色</a></li>
-          <li><a href="#">世界</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-btn">角色</a>
+            <ul class="dropdown-content">
+              <li><a href="#">学生</a></li>
+              <li><a href="#">老师</a></li>
+              <li><a href="#">家长</a></li>
+            </ul>
+          </li>
+          
+          
+          
+
+          <li><a href="/world">世界</a></li>
+          <li><a href="/what">没想好</a></li>
           <li><a href="#">没想好</a></li>
           <li><a href="#">没想好</a></li>
           <li><a href="#">没想好</a></li>
-          <li><a href="#">没想好</a></li>
+
+
+        
         </ul>
 
         <div class="nav-actions">
           <button class="login-btn">登录</button>
         </div>
-        
+         
        
         
 

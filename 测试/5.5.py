@@ -4,7 +4,39 @@ class TreeNode:
         self.left = left  
         self.right = right  
 
-        # simple_tree = TreeNode(777, TreeNode(888), TreeNode(999))
+di_yi_ge_shu1 = TreeNode(1)  # 根节点                                          
+di_yi_ge_shu2 = TreeNode(2)  
+di_yi_ge_shu3 = TreeNode(3)
+di_yi_ge_shu4 = TreeNode(4,left = None,right = None)  
+di_yi_ge_shu5 = TreeNode(5,left = TreeNode(5)  ,right = TreeNode(6)  )
+di_yi_ge_shu6 = TreeNode(7,left = di_yi_ge_shu3 ,right = di_yi_ge_shu2)
+
+
+di_yi_ge_shu1.left = di_yi_ge_shu2
+di_yi_ge_shu1.right = di_yi_ge_shu3
+di_yi_ge_shu2.left = di_yi_ge_shu4
+di_yi_ge_shu2.right = di_yi_ge_shu5
+di_yi_ge_shu5.left = di_yi_ge_shu6
+
+
+
+
+
+
+#       1
+#      / \
+#     2   3
+#    / \
+#   4   5
+#      / \
+#     7   6
+#    / \
+#   3   2
+
+
+
+
+simple_tree = TreeNode(777, TreeNode(888), TreeNode(999))
 
 # 递归前序遍历
 def qxbl_dg(root):
@@ -39,7 +71,6 @@ def qxbl_fdg(root):
 #  888   999
 simple_tree = TreeNode(777, TreeNode(888), TreeNode(999))
 
-
 node1 = TreeNode(1)  # 根节点
 node2 = TreeNode(2)
 node3 = TreeNode(3)
@@ -59,6 +90,8 @@ node5.right = node7
 node6.left = node8
 node3.right = node9
 
+
+
 # 测试用例2：复杂树
 #        1
 #      /   \
@@ -73,6 +106,11 @@ node3.right = node9
 
 # 空树测试
 empty_tree = None
+
+
+print("第一个树:", qxbl_dg(di_yi_ge_shu1))
+
+
 
 # 测试输出
 print("递归前序遍历:")
