@@ -146,7 +146,7 @@
 
         @keyframes fadeIn {
 
-        .collection-line {
+        collection-line {
             opacity: 0;
         }
 
@@ -433,27 +433,21 @@
 <!-- Custom scripts for this template -->
 <script src="/static/js/clean-blog.min.js"></script>
 
-{#<script>#}
-{#    $(document).ready(function () {#}
-{#        $(".zxf_pagediv").createPage({#}
-{#            pageNum: {{total_num}},  // 总的页码数#}
-{#pageNum: 10,  // 总的页码数#}
-{#            current: Number($('#fill-data').attr('class')),  // 当前的页码#}
-{#            backfun: function (e) {#}
-{#                console.log(e['current']);//回调   e['current] 是我们点击的时候的页码#}
-{#                var n_current = e['current'];#}
-{#                var part_path = window.location.pathname;#}
-{#                var path_list = part_path.split('/');#}
-{#                path_list[3] = n_current;#}
-{#                var n_url = path_list.join('/');#}
-{#                console.log(n_url);#}
-{#                window.location.replace(n_url);#}
-{#            }#}
-{#        });#}
-{#    });#}
-{#</script>#}
-
-
-</body>
-
-</html>
+<script>
+    $(document).ready(function() {
+        $(".zxf_pagediv").createPage({
+            pageNum: 10,  // 总的页码数
+            current: Number($('#fill-data').attr('class')),  // 当前的页码
+            backfun: function(e) {
+                console.log(e['current']); // 回调 e['current] 是我们点击的时候的页码
+                var n_current = e['current'];
+                var part_path = window.location.pathname;
+                var path_list = part_path.split('/');
+                path_list[3] = n_current;
+                var n_url = path_list.join('/');
+                console.log(n_url);
+                window.location.replace(n_url);
+            }
+        });
+    });
+</script>
