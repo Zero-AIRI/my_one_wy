@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, jsonify
+from flask import Blueprint, render_template, request, jsonify,json
 from models import House
 from sqlalchemy import func
 
@@ -45,3 +45,20 @@ def search_kw():
     else:  # 没有查询结果
         return jsonify({'code': 0, 'info': []})
     
+@index_page.route("/query")
+def query():
+    addr = request.args.get('addr')  # 获取地址查询参数
+    if not addr:
+        return jsonify({'code': 0, 'info': '地址参数缺失'}), 400
+    
+    # 执行查询操作
+    houses = House.query.filter(House.address.contains(addr)).all()
+    
+    if houses:
+        # 如果找到房屋，则返回相关信息
+        data = [{'id': house.id, 'address': house.address, 'rooms': house.rooms} for house in houses]
+        return jsonify({'code': 1, 'info': data})
+    else:
+        # 没有找到对应的房屋
+        return jsonify({'code': 0, 'info': '没有找到相关房屋信息'})
+

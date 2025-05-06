@@ -84,10 +84,9 @@
         }
 
         .login_form {
-    margin-top: 150px;
-    z-index: 999;  /* 注意这里的冒号是英文的 : */
-}
-
+            margin-top: 150px;
+            z-index：999;
+        }
 
         .form-info {
             font-size: 18px;
@@ -528,7 +527,7 @@
 
                 data = {"kw": keyWord, "info": info};
                 $.ajax({
-                    url: "/search/keyword/",
+                    url: "/search/keywords",
                     type: 'post',
                     dataType: 'json',
                     data: data,

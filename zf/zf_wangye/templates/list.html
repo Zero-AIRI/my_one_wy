@@ -146,7 +146,7 @@
 
         @keyframes fadeIn {
 
-        collection-line {
+        .collection-line {
             opacity: 0;
         }
 
@@ -437,8 +437,8 @@
 <script>
     $(document).ready(function () {
         $(".zxf_pagediv").createPage({
-            pageNum: {total_num}},  // 总的页码数
-            {pageNum: 10,  // 总的页码数#}
+            pageNum: {{total_num}},  // 总的页码数
+            {#pageNum: 10,  // 总的页码数#}
             current: Number($('#fill-data').attr('class')),  // 当前的页码
             backfun: function (e) {  // 回调函数
                 console.log(e['current']);  // e['current] 是单击更多房源链接文本时候的页码

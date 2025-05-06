@@ -5,38 +5,14 @@ class TreeNode:
         self.right = right  
 
 di_yi_ge_shu1 = TreeNode(1)  # 根节点                                          
-di_yi_ge_shu2 = TreeNode(2)  
-di_yi_ge_shu3 = TreeNode(3)
-di_yi_ge_shu4 = TreeNode(4,left = None,right = None)  
-di_yi_ge_shu5 = TreeNode(5,left = TreeNode(5)  ,right = TreeNode(6)  )
-di_yi_ge_shu6 = TreeNode(7,left = di_yi_ge_shu3 ,right = di_yi_ge_shu2)
-
-
-di_yi_ge_shu1.left = di_yi_ge_shu2
-di_yi_ge_shu1.right = di_yi_ge_shu3
-di_yi_ge_shu2.left = di_yi_ge_shu4
-di_yi_ge_shu2.right = di_yi_ge_shu5
-di_yi_ge_shu5.left = di_yi_ge_shu6
-
-
-
-
-
-
-#       1
-#      / \
-#     2   3
-#    / \
-#   4   5
-#      / \
-#     7   6
-#    / \
-#   3   2
-
-
 
 
 simple_tree = TreeNode(777, TreeNode(888), TreeNode(999))
+
+# 测试用例1：简单树
+#     777
+#    /   \
+#  888   999
 
 # 递归前序遍历
 def qxbl_dg(root):
@@ -93,7 +69,7 @@ node3.right = node9
 
 
 # 测试用例2：复杂树
-#        1
+#        1                                 
 #      /   \
 #     2     3
 #    / \     \
@@ -103,12 +79,19 @@ node3.right = node9
 #    /
 #   8
 
+def qxbl_dg(root):
+    if root is None:
+        return []
+    else:
+        return [root.val] + qxbl_dg(root.left) + qxbl_dg(root.right)
+
+
 
 # 空树测试
 empty_tree = None
 
 
-print("第一个树:", qxbl_dg(di_yi_ge_shu1))
+print("第一个树:", qxbl_dg(node1))
 
 
 

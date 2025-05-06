@@ -5,6 +5,7 @@ from index_page import index_page
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
 app.register_blueprint(index_page,url_prefix='/')
 db.init_app(app)
 
